@@ -25,4 +25,5 @@ class PrismaService {
         });
     }
 }
-exports.default = PrismaService;
+const prismaService = new PrismaService();
+exports.default = prismaService;

@@ -2,13 +2,13 @@ import UserEntity from "../entities/user.entity";
 import { UserModel } from "@prisma/client";
 import { IUserRepo } from "./types";
 
-import PrismaService from "../../../database/prisma.service";
+import prismaService from "../../../database/prisma.service";
 
 class UserRepo implements IUserRepo {
   private prismaClient;
 
   constructor() {
-    this.prismaClient = new PrismaService();
+    this.prismaClient = prismaService;
   }
   public getAll(): Promise<UserModel[]> {
     throw new Error("Method not implemented.");

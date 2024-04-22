@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const prisma_service_1 = __importDefault(require("../../../database/prisma.service"));
 class UserRepo {
     constructor() {
-        this.prismaClient = new prisma_service_1.default();
+        this.prismaClient = prisma_service_1.default;
     }
     getAll() {
         throw new Error("Method not implemented.");

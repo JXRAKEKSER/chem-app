@@ -7,10 +7,10 @@ import {
 } from "../api/predict.api";
 
 import { PredictionModel } from "@prisma/client";
-import PrismaService from "../../../database/prisma.service";
+import prismaService from "../../../database/prisma.service";
 
 class PredictRepo implements IPredictRepo {
-  private readonly prismaService: PrismaService = new PrismaService();
+  private readonly prismaService = prismaService;
 
   public singlePredict(formula: string): Promise<number> {
     return fetchSinglePredicton(formula);

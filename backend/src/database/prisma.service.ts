@@ -14,5 +14,6 @@ class PrismaService {
     this.client.$disconnect();
   }
 }
+const prismaService = new PrismaService();
 
-export default PrismaService;
+export default prismaService;

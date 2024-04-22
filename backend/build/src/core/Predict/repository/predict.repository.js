@@ -16,7 +16,7 @@ const predict_api_1 = require("../api/predict.api");
 const prisma_service_1 = __importDefault(require("../../../database/prisma.service"));
 class PredictRepo {
     constructor() {
-        this.prismaService = new prisma_service_1.default();
+        this.prismaService = prisma_service_1.default;
     }
     singlePredict(formula) {
         return (0, predict_api_1.fetchSinglePredicton)(formula);
@@ -37,6 +37,9 @@ class PredictRepo {
         return this.prismaService.client.predictionModel.create({
             data: Object.assign({}, predictionDto),
         });
+    }
+    getSavedPredictions(userId) {
+        throw new Error("not implemented");
     }
 }
 exports.default = PredictRepo;
