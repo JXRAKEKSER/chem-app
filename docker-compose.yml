@@ -1,0 +1,16 @@
+version: '3'
+services:
+  service-postgres:
+    image: postgres:latest
+    container_name: service-postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=chemReview
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=rootik
+    volumes:
+      - postgres:/var/lib/postgresql/data
+volumes:
+  postgres:

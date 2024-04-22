@@ -1,0 +1,24 @@
+:root {
+    --background: #F6F6F6;
+    --primary: #24B98D;
+    --text-primray: #3F434B;
+    --low-grey: #A8A8A9;
+    --blue: #4A58EC;
+    --low-blue: #EAEBFC;
+    --text-grey: #6D6D72;
+    --white: #FFFFFF;
+    --test-light-grey: #878787;
+
+    --border-color: #E3E7EA;
+    --grey-border: 0.1rem solid var(--border-color);
+    --section-border-radius: 1.5rem;
+    --grey-border-radius: 0.5rem;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    background: var(--background);
+    min-height: 100vh;
+    font-family: Inter;
+}
