@@ -1,4 +1,4 @@
-import CsvCreator from "./CsvCreator";
+import CsvCreator from "./Csv/CsvCreator";
 
 export enum CREATOR_TYPES {
   CSV,

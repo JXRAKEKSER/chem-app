@@ -22,15 +22,15 @@ class JwtFabric {
       expiresIn: config.expiresIn,
     });
   }
-  public static getPayload(jwt: string): tokenPayload | null {
-    try {
-      return verify(jwt, this.SECRET_KEY) as tokenPayload;
-    } catch (error) {
-      if (error instanceof JsonWebTokenError) {
-        return null;
-      }
-      throw error;
-    }
+  public static getPayload(jwt: string): Promise<tokenPayload | null> {
+    return new Promise((resolve, reject) => {
+      verify(jwt, this.SECRET_KEY, (error, payload) => {
+        if (error) {
+          resolve(null);
+        }
+        resolve(payload as tokenPayload);
+      });
+    });
   }
 }
 

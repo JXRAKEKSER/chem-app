@@ -1,4 +1,4 @@
-import { IFileCreator } from './types';
+import { IFileCreator } from '../types';
 
 export type csvData = {
   headers: string[],

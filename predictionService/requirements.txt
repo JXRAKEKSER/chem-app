@@ -1,0 +1,10 @@
+fastapi==0.110.1
+uvicorn==0.29.0
+pydantic==2.7.0
+dgl==2.1.0
+dgllife==0.3.2
+numpy==1.24.4
+pandas==2.0.3
+rdkit==2023.9.5
+torch==2.2.1
+catboost==1.2.3

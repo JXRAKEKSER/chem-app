@@ -17,8 +17,7 @@ const registrate = async (req: Request, res: Response, next: NextFunction) => {
     }
     return res.status(201).send({ ...createdUser });
   } catch (error) {
-    console.log(error);
-    return res.status(500).send({ message: "Ошибка на сервере" });
+    next(error);
   }
 };
 
@@ -36,7 +35,7 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
 
     return res.status(200).send({ jwt });
   } catch (error) {
-    return res.status(500).send({ message: "Ошибка на сервере" });
+    next(error);
   }
 };
 
@@ -50,7 +49,7 @@ const getUserMe = async (req: Request, res: Response, next: NextFunction) => {
     }
     return res.status(200).send({ ...user });
   } catch (error) {
-    return res.status(500).send({ message: "Ошибка на сервере" });
+    next(error);
   }
 };
 
