@@ -17,9 +17,14 @@ class PredictService {
     return prediction;
   }
 
-  public async getFilePredict(file: Buffer): Promise<filePredictEntity> {
+  public getFilePredict(file: Buffer): Promise<filePredictEntity> {
     return this.predictRepo.filePredict(file);
   }
+
+  public getSavedPredictions(userId: number) {
+    return this.predictRepo.getSavedPredictions(userId);
+  }
+
 }
 
 export default PredictService;

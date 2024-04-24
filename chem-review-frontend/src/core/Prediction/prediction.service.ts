@@ -1,3 +1,4 @@
+import type { predictedDrug } from '@/api/prediction.api';
 import type { IPredictionRepo } from './types';
 
 class PredictionService {
@@ -9,6 +10,10 @@ class PredictionService {
 
     public computeFilePrediction(file: File) {
         return this.predictionRepo.getPredictionFromFile(file);
+    }
+
+    public getSavedPredictions(): Promise<predictedDrug[]> {
+        return this.predictionRepo.getSavedPredictions();
     }
 }
 

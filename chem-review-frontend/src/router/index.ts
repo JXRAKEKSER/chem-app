@@ -21,6 +21,10 @@ const router = createRouter({
           component: () => import("@/views/PageHome.vue"),
         },
         {
+          path: "saved",
+          component: () => import("@/views/PageSaved.vue"),
+        },
+        {
           path: "calculate",
           component: () => import("@/views/Calculate/PageRoot.vue"),
           children: [

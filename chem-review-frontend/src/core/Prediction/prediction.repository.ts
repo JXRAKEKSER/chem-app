@@ -1,6 +1,6 @@
 import type { IPredictionRepo } from './types';
-import type { filePredictResponse } from '@/api/prediction.api';
-import { fetchSinglePredict, fetchFilePredict, } from '@/api/prediction.api';
+import type { filePredictResponse, predictedDrug } from '@/api/prediction.api';
+import { fetchSinglePredict, fetchFilePredict, fetchSavedPredictions } from '@/api/prediction.api';
 
 class PredictionRepo implements IPredictionRepo {
     public getSinglePrediction(formula: string, isSaved: boolean = false): Promise<number> {
@@ -11,6 +11,10 @@ class PredictionRepo implements IPredictionRepo {
         const form = new FormData();
         form.append('file', file);
         return fetchFilePredict(form);
+    }
+
+    public getSavedPredictions(): Promise<predictedDrug[]> {
+        return fetchSavedPredictions();
     }
 }
 

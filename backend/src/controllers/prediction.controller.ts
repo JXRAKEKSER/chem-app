@@ -43,4 +43,19 @@ const getFilePredict = async (
   }
 };
 
-export { getSinglePrediction, getFilePredict };
+const getSavedPredictions = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { id } = req.user;
+    const predictService = new PredictService(new PredictRepo());
+    const savedPredictions = await predictService.getSavedPredictions(id);
+    return res.status(200).json(savedPredictions);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export { getSinglePrediction, getFilePredict, getSavedPredictions };

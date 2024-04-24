@@ -6,7 +6,14 @@ import TheSidebar from "@/components/TheSidebar.vue";
 import NavigationBar from "@/components/NavigationBar.vue";
 import NavigationTab from "@/components/NavigationTab.vue";
 
+import CalculateIcon from '@/assets/icons/CalculateIcon.vue';
+
 import { tabs } from "@/router/meta/navigationData";
+import type { Component } from 'vue';
+
+const navigationIcons: { [key: string]: Component } = {
+  "calculate": CalculateIcon,
+}
 </script>
 
 <template>
@@ -15,11 +22,15 @@ import { tabs } from "@/router/meta/navigationData";
     <TheSidebar>
       <NavigationBar>
         <NavigationTab
-          v-for="{ text, link, id } in tabs"
+          v-for="{ text, link, id, tag } in tabs"
           :link="link"
           :text="text"
           :key="id"
-        ></NavigationTab>
+        >
+        <template #icon="{ isActive }">
+          <component :class="{ 'active-icon': isActive }" :is="navigationIcons[tag]" />
+        </template>
+        </NavigationTab>
       </NavigationBar>
     </TheSidebar>
     <main class="app-layout__main">
@@ -38,5 +49,9 @@ import { tabs } from "@/router/meta/navigationData";
 }
 .app-layout__the-header {
   grid-column: 1/3;
+}
+:deep(.icon.active-icon path) {
+  fill: var(--white);
+  stroke: var(--white);
 }
 </style>

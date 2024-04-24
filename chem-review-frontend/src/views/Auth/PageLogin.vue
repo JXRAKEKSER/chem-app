@@ -85,5 +85,6 @@ const handleLogin = async () => {
   border-radius: 6rem;
   padding: 1.5rem 3.6rem;
   align-self: flex-end;
+  background-color: var(--primary);
 }
 </style>

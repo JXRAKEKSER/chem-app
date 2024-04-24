@@ -48,4 +48,14 @@ const fetchFilePredict = async (
   }
 };
 
-export { fetchSinglePredict, fetchFilePredict };
+const fetchSavedPredictions = async (): Promise<predictedDrug[]> => {
+  try {
+    const http = createHttpInstance();
+    const { data } = await http.get<predictedDrug[]>("/prediction/saved");
+    return data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export { fetchSinglePredict, fetchFilePredict, fetchSavedPredictions };

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ROUTE_NAMES } from "@/router/meta/route.names";
+
 interface IProps {
   title: string;
 }
@@ -7,7 +9,12 @@ const props = defineProps<IProps>();
 
 <template>
   <header class="the-header">
-    <h1 class="the-header__title">{{ props.title }}</h1>
+    <h1
+      @click="$router.push({ name: ROUTE_NAMES.HOME.ROOT })"
+      class="the-header__title"
+    >
+      {{ props.title }}
+    </h1>
   </header>
 </template>
 
@@ -21,5 +28,6 @@ const props = defineProps<IProps>();
 .the-header__title {
   font-size: 3.6rem;
   font-weight: 500;
+  cursor: pointer;
 }
 </style>

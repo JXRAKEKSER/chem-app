@@ -9,7 +9,7 @@ interface IPredictRepo {
     userId: number;
     prediction: number;
   }): Promise<PredictionModel>;
-  getSavedPredictions(userId: number): Promise<predictedDrug>;
+  getSavedPredictions(userId: number): Promise<predictedDrug[]>;
 }
 
 export { IPredictRepo };

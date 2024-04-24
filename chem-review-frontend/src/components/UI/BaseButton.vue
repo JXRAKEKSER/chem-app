@@ -22,7 +22,7 @@ const props = withDefaults(defineProps<IProps>(), { type: "button" });
   padding: 0.8rem 1rem;
   border-radius: 0.5rem;
   border: 1px solid transparent;
-  background-color: var(--primary);
+  background-color: var(--blue);
   color: var(--white);
   font-size: 2rem;
   font-weight: 500;

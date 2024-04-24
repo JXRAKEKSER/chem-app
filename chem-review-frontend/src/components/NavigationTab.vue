@@ -24,15 +24,16 @@ const props = defineProps<IProps>();
   gap: 1.5rem;
   padding: 1rem;
   border-radius: var(--grey-border-radius);
-  background-color: var(--low-grey);
 }
 .navigation-tab_active {
   background-color: var(--blue);
 }
 .navigation-tab__text {
-  font-size: 2.4rem;
+  font-size: 1.6rem;
   font-weight: 500;
-  color: var(--text-primray);
+  line-height: 1.7rem;
+  width: 100%;
+  color: #a8a8a9;
 }
 .navigation-tab__text_active {
   color: var(--white);

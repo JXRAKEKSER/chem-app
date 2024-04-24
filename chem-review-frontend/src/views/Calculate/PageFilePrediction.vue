@@ -61,7 +61,7 @@ const handleExport = async () => {
 
 <template>
   <section class="page-file-prediction">
-    <h1 class="page-file-prediction__title">Расчет из файла</h1>
+    <h2 class="page-file-prediction__title">Расчет из файла</h2>
     <BaseButton
       class="page-file-prediction__export-button"
       v-if="predictionResult.predictedDrugs.length"
@@ -70,7 +70,7 @@ const handleExport = async () => {
     >
     <div class="page-file-prediction__work-area">
       <form class="form" @submit.prevent="handlePredict">
-        <FilePicker @filePicked="handleFilePick" />
+        <FilePicker caption="Выберите файл в формате CSV" @filePicked="handleFilePick" />
         <BaseButton type="submit" :disabled="!pickedFile">
           Рассчитать
         </BaseButton>
@@ -95,6 +95,11 @@ const handleExport = async () => {
   gap: 2rem 0;
   padding: 4rem;
 }
+.page-file-prediction__title {
+  font-size: 3.2rem;
+  font-weight: 600;
+  line-height: 3.4rem;
+}
 .page-file-prediction__work-area {
   display: flex;
   flex-direction: column;
@@ -108,10 +113,12 @@ const handleExport = async () => {
 }
 .form {
   display: flex;
+  flex-direction: column;
+  gap: 2rem;
   align-items: center;
 }
 .predicted-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 </style>

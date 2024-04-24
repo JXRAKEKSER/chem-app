@@ -12,6 +12,12 @@ const tabs: tabData[] = [
     link: "/calculate",
     tag: "calculate",
   },
+  {
+    id: 2,
+    text: "Сохраненные",
+    link: "/saved",
+    tag: "savedPredictions",
+  },
 ];
 
 export { tabs };

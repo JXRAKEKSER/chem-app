@@ -6,6 +6,7 @@ import { ROUTE_NAMES } from "@/router/meta/route.names";
 
 <template>
   <section class="page-calculator">
+    
     <BaseButton @click="$router.push({ name: ROUTE_NAMES.CALULATE.SINGLE })">
       Из строки
     </BaseButton>

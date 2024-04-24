@@ -41,8 +41,14 @@ class PredictRepo implements IPredictRepo {
     });
   }
 
-  public getSavedPredictions(userId: number): Promise<predictedDrug> {
-    throw new Error("not implemented");
+  public async getSavedPredictions(userId: number): Promise<predictedDrug[]> {
+    return (
+      await this.prismaService.client.predictionModel.findMany({
+        where: { userId },
+      })
+    ).map(({ prediction, formula }) => {
+      return { prediction, formula };
+    });
   }
 }
 
