@@ -5,6 +5,8 @@
   "main": "./src/app.ts",
   "scripts": {
     "transpile": "tsc",
+    "start:dev": "node build/src/app.js dev",
+    "start:prod": "node build/src/app.js prod",
     "test": "jest",
     "generate:prisma-types": "prisma generate",
     "migrate": "prisma migrate dev --name $NAME"

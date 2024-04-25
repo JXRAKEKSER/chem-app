@@ -12,5 +12,30 @@ services:
       - POSTGRES_PASSWORD=rootik
     volumes:
       - postgres:/var/lib/postgresql/data
+
+  backend-app:
+    build:
+      context: ./backend
+      dockerfile: ./ci/DockerFile
+    restart: always
+    ports:
+      - 3000:3000
+    depends_on:
+      - service-postgres
+  predictor-service:
+    container_name: 'predictor_service'
+    build:
+      context: ./predictionService
+      dockerfile: ./DockerFile
+    restart: always
+    ports:
+      - 8000:8000
+  frontend-app:
+    build:
+      context: ./chem-review-frontend
+      dockerfile: ./config/ci/DockerFile
+    restart: always
+    ports:
+      - 80:80
 volumes:
   postgres:

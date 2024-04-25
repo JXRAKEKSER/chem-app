@@ -1,0 +1,27 @@
+FROM node:20 as build-stage
+
+WORKDIR /backend-app
+
+ADD package.json .
+
+RUN npm i
+
+COPY . .
+
+RUN npm run transpile
+
+FROM node:20
+
+WORKDIR /backend-app
+
+ADD package.json .
+ADD .env .
+ADD prisma .
+
+RUN npm i --omit=dev
+
+COPY --from=build-stage /backend-app/build ./build
+
+CMD [ "npm", "run", "start:prod" ]
+
+EXPOSE 3000

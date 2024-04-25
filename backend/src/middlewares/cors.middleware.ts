@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-const accessAllowList = ["http://localhost:5173"];
+const accessAllowList = ["http://localhost:5173", "http://localhost"];
 const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE";
 
 export default (req: Request, res: Response, next: NextFunction) => {

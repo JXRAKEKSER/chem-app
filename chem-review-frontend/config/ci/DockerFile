@@ -1,0 +1,17 @@
+FROM node:20-alpine as production-build
+
+WORKDIR /frontend-app
+ADD package.json .
+RUN npm install
+
+COPY . .
+RUN npm run build
+
+FROM nginx:1.25.3-alpine
+WORKDIR /etc/nginx
+
+COPY --from=production-build /frontend-app/config/nginx/chem-review.conf ./conf.d/default.conf
+WORKDIR /var/www/chem-review
+COPY --from=production-build /frontend-app/dist/ .
+
+EXPOSE 80

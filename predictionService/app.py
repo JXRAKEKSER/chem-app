@@ -10,4 +10,4 @@ app = FastAPI()
 def hello():
     return {'Hello'}
 
-app.mount('/', predict_api)
+app.mount('/prediction', predict_api)

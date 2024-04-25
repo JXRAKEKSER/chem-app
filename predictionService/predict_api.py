@@ -22,7 +22,7 @@ def get_list_from_column(column_names: List[str], df):
             return list(df[column_name])
 
 
-@app.post('/prediction')
+@app.post('/')
 def predict(req: SinglePredictDto):
     model = PredicModel()
     predictionService = PredictionService(model=model)
@@ -33,7 +33,7 @@ def predict(req: SinglePredictDto):
     
     return SinglePredictResponse(prediction=prediction)
 
-@app.post('/prediction/csv')
+@app.post('/csv')
 def predictFromFile(file: Annotated[bytes, File()]):
     buffer_str = str(file, 'utf-8')
     drugs_df = PandasUtils.read_file(StringIO(buffer_str))
